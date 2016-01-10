@@ -58,24 +58,23 @@ for line in sys.stdin:
             day_cnts_to_output=[]
         prev_word         =curr_word  #set up previous word for the next set of input lines
 
-	
-    # ---------------------------------------------------------------
-    #whether or not the join result was written out, 
-    #   now process the curr word    
-  	
-    #determine if its from file <word, total-count> or < word, date day-count>
-    # and build up list of dates, day counts, and the 1 total count
-    # ---------------------------------------------------------------
-    if (value_in[0:3] in months): 
 
-        date_day =value_in.split() #split the value field into a date and day-cnt
-        
-        #add date to lists of the value fields we are building
-        dates_to_output.append(date_day[0])
-        day_cnts_to_output.append(date_day[1])
-    else:
-        curr_word_total_cnt = value_in  #if the value field was just the total count then its
-                                           #the first (and only) item in this list
+# ---------------------------------------------------------------
+# whether or not the join result was written out, 
+# now process the curr word    
+# determine if its from file <word, total-count> or < word, date day-count>
+# and build up list of dates, day counts, and the 1 total count
+# ---------------------------------------------------------------
+if (value_in[0:3] in months): 
+
+    date_day =value_in.split() #split the value field into a date and day-cnt
+    
+    #add date to lists of the value fields we are building
+    dates_to_output.append(date_day[0])
+    day_cnts_to_output.append(date_day[1])
+else:
+    curr_word_total_cnt = value_in  #if the value field was just the total count then its
+                                       #the first (and only) item in this list
 
 # ---------------------------------------------------------------
 #now write out the LAST join result
